@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# script to install basic programs for sensor_log
+
+sudo apt-get update
+
+sudo apt-get install python-smbus i2c-tools build-essential python-dev python-openssl
+
+# run <sudo raspi-config> and activate i2c-tools for real time clock
+
+git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+
+cd Adafruit_Python_DHT
+
+sudo python setup.py install
+
+# change to the <examples> directory and test the installation with <sudo ./AdafruitDHT.py 22 4>
+# <22> is the DHT sensor model and <4> is the GPIO pin the DHT sensor is connected to.
+
+########## INSTALL Real Time Clock
+
+# To install RTC, verify the rpi recognizes it with
+#
+#	 sudo i2cdetect -y 2
+#
+# then load the RTC module with
+#
+# 	sudo echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device
+#
+# Check the rpi's date with <date>, if it is correct, run
+#
+#	sudo hwclock -w
+#
+# to overwright the system clock onto the RTC. You can verify this step with <sudo hwclock -r>
+# Add the RTC module to /etc/modules so its loaded when the rpi boots:
+#
+#	sudo echo rtc-ds1307 >> /etc/modules
+#
+# Now add the following lines to </etc/rc.local> before <exit 0>:
+#
+#	echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device
+#	sudo hwclock -s
+#
+# so that the RTC device is created at boot.
+
