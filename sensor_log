@@ -2,11 +2,21 @@
 
 ################ Variables
 
-timestamp=$(date +"%Y-%m-%d %H:%M:%S")  ### sets timestamp as year/month/day hour:minutes:seconds
+interval=30  ## number of seconds in between measurements
 
 ################ Script
 
 # appends <timestamp temp hum> to register.txt where <temp> and <hum> are obtained by reading de DHT22
 # sensor with the <dhtsensor.py> python script.
 
+while true  ## loop
+
+do
+
+timestamp=$(date +"%Y-%m-%d %H:%M:%S")  ### sets timestamp as <year/month/day hour:minutes:seconds>
+
 echo "$timestamp $(sudo /home/pi/sensor_log/./dhtsensor.py 22 4)" >> /home/pi/sensor_log/register.txt
+
+sleep $interval  ### pause for <interval> seconds
+
+done
