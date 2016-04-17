@@ -4,7 +4,7 @@
 
 sudo apt-get update
 
-sudo apt-get install python-smbus i2c-tools build-essential python-dev python-openssl
+sudo apt-get install python-smbus i2c-tools build-essential python-dev python-openssl gnuplot
 
 # run <sudo raspi-config> and activate i2c-tools for real time clock
 
