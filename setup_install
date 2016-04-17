@@ -8,11 +8,11 @@ sudo apt-get install python-smbus i2c-tools build-essential python-dev python-op
 
 # run <sudo raspi-config> and activate i2c-tools for real time clock
 
-git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+#git clone https://github.com/adafruit/Adafruit_Python_DHT.git
 
-cd Adafruit_Python_DHT
+#cd Adafruit_Python_DHT
 
-sudo python setup.py install
+#sudo python setup.py install
 
 # change to the <examples> directory and test the installation with <sudo ./AdafruitDHT.py 22 4>
 # <22> is the DHT sensor model and <4> is the GPIO pin the DHT sensor is connected to.
