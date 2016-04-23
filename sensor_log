@@ -2,7 +2,7 @@
 
 ################ Variables
 
-interval=30  ## number of seconds in between measurements
+interval=120  ## number of seconds in between measurements
 
 ################ Script
 
