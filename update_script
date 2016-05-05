@@ -1,0 +1,15 @@
+#!/bin/bash
+
+git init
+
+cd plots/
+
+./plot_sensor_log
+
+cd ..
+
+git add .
+
+git commit -m "update measurements"
+
+
